@@ -1,0 +1,4 @@
+Good Units YTD = TOTALYTD ( [Good Units], 'dim_date'[Date] )
+Good Units PY = CALCULATE ( [Good Units], SAMEPERIODLASTYEAR ( 'dim_date'[Date] ) )
+OEE MoM =
+VAR C=[OEE] VAR P=CALCULATE([OEE], DATEADD('dim_date'[Date], -1, MONTH)) RETURN DIVIDE(C-P,P)

@@ -1,0 +1,4 @@
+- [ ] OEE components reconcile to sample averages
+- [ ] DQ page shows all FlagTypes
+- [ ] Alert measures flip under View as filters
+- [ ] Docs cover Import vs DQ decision

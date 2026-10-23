@@ -1,0 +1,11 @@
+DQ Flag Count = COUNTROWS ( 'fact_data_quality_flags' )
+DQ High Severity =
+CALCULATE ( [DQ Flag Count], 'fact_data_quality_flags'[Severity] = "High" )
+Late Arriving Rows =
+CALCULATE ( COUNTROWS ( 'fact_production' ), 'fact_production'[IsLateArriving] = 1 )
+Anomaly Rows =
+CALCULATE ( COUNTROWS ( 'fact_production' ), 'fact_production'[IsAnomaly] = 1 )
+Missing Shift Flags =
+CALCULATE ( [DQ Flag Count], 'fact_data_quality_flags'[FlagType] = "MISSING_SHIFT" )
+DQ Rate % =
+DIVIDE ( [DQ Flag Count], COUNTROWS ( 'fact_production' ) )

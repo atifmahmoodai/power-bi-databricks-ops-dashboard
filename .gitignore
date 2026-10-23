@@ -1,29 +1,31 @@
-
-# Power BI / Office binaries (portfolio is text-first)
+# Power BI / analysis
 *.pbix
 *.pbit
-*.xlsx
-*.xls
-*.xlsm
-~$*
-
-# OS / editor
-.DS_Store
-Thumbs.db
-*.swp
-.vscode/
-.idea/
+*.pbids
+*.abf
+*.opendata
+*.msmdsrv*
+Dataset/
+Report/
 
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
 .venv/
 venv/
 .env
+.env.*
 
-# Secrets / local
-*.pem
-*.key
-credentials.*
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local secrets / credentials
+**/secrets/
+**/credentials/
+*.pfx
+*.snk
 local.settings.json
-

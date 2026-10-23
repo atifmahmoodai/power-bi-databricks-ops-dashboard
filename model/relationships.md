@@ -1,19 +1,10 @@
-# Relationships
-
-| From | To | Cardinality |
-|------|----|-------------|
-| dim_line[PlantId] | dim_plant[PlantId] | Many:1 |
-| fact_production[PlantId] | dim_plant[PlantId] | Many:1 |
-| fact_production[LineId] | dim_line[LineId] | Many:1 |
-| fact_production[ShiftId] | dim_shift[ShiftId] | Many:1 |
-
-For flags, create a **weak** link via LineId + ShiftId + ProductionDate (composite key column recommended):
-
-`DQKey = ProductionDate & "|" & LineId & "|" & ShiftId` on both facts.
-
-### Performance notes
-
-- Import demo is well under **100 MB**.  
-- For DirectQuery: avoid `SUMX` over large unrelated tables; prefer simple aggregates.  
-- Pre-aggregate gold tables in Databricks for executive dashboards.  
-- Disable Auto date/time; use a proper date dimension if you extend the model.
+| From | To | Card | Active |
+|------|----|------|--------|
+| fact_production[PlantKey] | dim_plant[PlantKey] | *∶1 | Y |
+| fact_production[LineKey] | dim_line[LineKey] | *∶1 | Y |
+| fact_production[ShiftKey] | dim_shift[ShiftKey] | *∶1 | Y |
+| fact_production[DateKey] | dim_date[DateKey] | *∶1 | Y |
+| fact_data_quality_flags[LineKey] | dim_line[LineKey] | *∶1 | Y |
+| fact_data_quality_flags[DateKey] | dim_date[DateKey] | *∶1 | Y |
+| dim_line[PlantKey] | dim_plant[PlantKey] | *∶1 | Y |
+Single direction only.

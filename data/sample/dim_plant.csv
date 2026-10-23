@@ -1,5 +1,6 @@
-PlantId,PlantName,Region
-PLT1,North Plant,North
-PLT2,South Plant,South
-PLT3,East Plant,East
-PLT4,West Plant,West
+PlantKey,PlantId,PlantName,Region,Timezone
+1,PLT-AUS,Austin Assembly,AMER,America/Chicago
+2,PLT-MEX,Monterrey Components,AMER,America/Monterrey
+3,PLT-POL,Wroclaw Precision,EMEA,Europe/Warsaw
+4,PLT-SGP,Singapore Electronics,APAC,Asia/Singapore
+5,PLT-OH,Columbus Fabrication,AMER,America/New_York

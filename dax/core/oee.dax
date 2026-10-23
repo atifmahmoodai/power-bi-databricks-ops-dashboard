@@ -1,0 +1,11 @@
+Good Units = SUM ( 'fact_production'[GoodUnits] )
+Scrap Units = SUM ( 'fact_production'[ScrapUnits] )
+Planned Units = SUM ( 'fact_production'[PlannedUnits] )
+Yield % = DIVIDE ( [Good Units], [Good Units] + [Scrap Units] )
+OEE = AVERAGE ( 'fact_production'[OEE] )
+Availability = AVERAGE ( 'fact_production'[Availability] )
+Performance = AVERAGE ( 'fact_production'[Performance] )
+Quality = AVERAGE ( 'fact_production'[Quality] )
+Downtime Minutes = SUM ( 'fact_production'[DowntimeMinutes] )
+OEE vs Target =
+DIVIDE ( [OEE], AVERAGE ( 'dim_line'[TargetOEE] ) ) - 1

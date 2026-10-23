@@ -1,0 +1,14 @@
+Alert OEE Low =
+IF ( [OEE] < 0.65, 1, 0 )
+Alert Downtime Spike =
+IF ( [Downtime Minutes] > 120, 1, 0 )
+Alert DQ High =
+IF ( [DQ High Severity] > 0, 1, 0 )
+Alert Banner Text =
+SWITCH (
+    TRUE (),
+    [Alert DQ High] = 1, "High severity data quality flags present",
+    [Alert OEE Low] = 1, "OEE below critical threshold",
+    [Alert Downtime Spike] = 1, "Downtime spike in context",
+    "Operating within bands"
+)
